@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatDataSourceModule } from '@matheo/datasource';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -47,7 +46,6 @@ export const ROUTES: Routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatDataSourceModule,
     MatCardModule,
     MatListModule,
     MatSnackBarModule,
