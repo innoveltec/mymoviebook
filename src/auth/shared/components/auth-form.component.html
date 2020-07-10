@@ -1,0 +1,38 @@
+<div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+  <mat-card class="auth-form">
+    <mat-card-title>
+      <ng-content select="b"></ng-content>
+    </mat-card-title>
+    <mat-card-content>
+      <form
+        fxLayout="column"
+        fxLayoutAlign="space-around start"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email address" formControlName="email" />
+          <mat-error *ngIf="emailFormat">
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            type="password"
+            placeholder="Enter password"
+            formControlName="password"
+          />
+          <mat-error *ngIf="passwordInvalid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <ng-content select=".error"></ng-content>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <ng-content select="button"></ng-content>
+          <ng-content select="a"></ng-content>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

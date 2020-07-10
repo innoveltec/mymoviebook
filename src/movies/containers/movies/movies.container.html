@@ -1,0 +1,11 @@
+<div>
+  <mb-movie-list
+    [movies]="movie$ | async"
+    (edit)="onEditMovie($event)"
+    (delete)="onDeleteMovie($event)"
+  >
+  </mb-movie-list>
+  <a mat-fab class="fixed-bottom-right" color="primary" [routerLink]="'./new'">
+    <mat-icon>add</mat-icon>
+  </a>
+</div>

@@ -1,0 +1,26 @@
+<div class="movie">
+  <div class="movie__title">
+    <h1>
+      <span *ngIf="movie$ | async as movie; else loadingTitle;">
+        {{ movie.id ? 'Edit' : 'Create' }} movie
+      </span>
+      <ng-template #loadingTitle>
+        Loading...
+      </ng-template>
+    </h1>
+  </div>
+  <div *ngIf="movie$ | async as movie; else loading;">
+    <mb-movie-form
+      [movie]="movie"
+      (create)="onCreate($event)"
+      (update)="onUpdate($event)"
+    >
+    </mb-movie-form>
+  </div>
+  <ng-template #loading>
+    <div class="message">
+      <img src="assets/loading.svg" />
+      Fetching movie...
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,64 @@
+.mb-sidenav {
+  min-height: 100vh;
+
+  ::ng-deep .mat-sidenav {
+    @media only screen and (max-width: 731px) {
+      position: fixed;
+    }
+
+    &-content {
+      background: inherit;
+    }
+  }
+}
+
+.navigation {
+  &--search {
+    min-height: 3rem;
+    line-height: 3;
+    padding: 16px;
+
+    .mat-form-field {
+      width: 180px;
+      padding: 0 20px;
+      font-size: 13px;
+    }
+  }
+  span {
+    margin-left: 10px;
+  }
+}
+
+.btn-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  z-index: 3;
+}
+
+/* button return top*/
+[id="btn-returnToTop"] {
+  position: fixed;
+  bottom: 40px;
+  right: 12px;
+  display: none;
+  z-index: 1;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

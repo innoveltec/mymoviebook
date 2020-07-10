@@ -1,0 +1,121 @@
+<div class="movie-list">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="movie_title">
+      <mat-header-cell *matHeaderCellDef>Movie Title</mat-header-cell>
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span>
+          {{ row.movie_title }}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imdb_score">
+      <mat-header-cell
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        *matHeaderCellDef
+        >Imdb Score</mat-header-cell
+      >
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <span>
+          <strong>{{ row.imdb_score }}</strong>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="budget">
+      <mat-header-cell *matHeaderCellDef>Budget</mat-header-cell>
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span> {{ row.budget }} € </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="director_name">
+      <mat-header-cell *matHeaderCellDef>Director Name</mat-header-cell>
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span>
+          <strong>{{ row.director_name }}</strong>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span>
+          <strong>{{ row.duration }} min</strong>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="genres">
+      <mat-header-cell *matHeaderCellDef>Genres</mat-header-cell>
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span class="truncate-text"> {{ row.genres.join(",") }} </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title_year">
+      <mat-header-cell
+        *matHeaderCellDef
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        >Title Year</mat-header-cell
+      >
+      <mat-cell
+        *matCellDef="let row"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <span>
+          <strong>{{ row.title_year }}</strong>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxLayout="row" fxLayoutAlign="end center">
+        <a mat-icon-button [routerLink]="['/movies', row.id]">
+          <mat-icon>visibility</mat-icon>
+        </a>
+        <button mat-icon-button (click)="deleteMovie(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    #paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

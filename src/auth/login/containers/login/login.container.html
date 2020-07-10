@@ -1,0 +1,10 @@
+<div class="loginForm">
+  <mb-auth-form (submitted)="loginUser($event)">
+    <b>Login</b>
+    <a routerLink="/auth/register">Not registered?</a>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
+  </mb-auth-form>
+</div>

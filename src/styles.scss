@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/theming";
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2)
+    format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+a,
+button {
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+li {
+  list-style: none;
+}
+.material-icons {
+  vertical-align: middle;
+}
+.fixed-bottom-right {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: $z-index-fab;
+
+  &.mini {
+    bottom: 90px;
+  }
+}

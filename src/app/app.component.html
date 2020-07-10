@@ -1,0 +1,56 @@
+<div class="mb-toolbar" [class.mb-toolbar--mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary">
+    <button
+      *ngIf="(loggedInUser$ | async)?.authenticated"
+      mat-icon-button
+      (click)="snav.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Moviebook</h1>
+    <span class="example-spacer"></span>
+    <span *ngIf="(loggedInUser$ | async)?.authenticated"
+      >Hi, {{ (loggedInUser$ | async)?.email }}</span
+    >
+  </mat-toolbar>
+</div>
+<mat-sidenav-container autosize class="mb-sidenav">
+  <mat-sidenav
+    [opened]="mobileQuery.matches ? 'false' : 'true'"
+    #snav
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches"
+  >
+    <ng-container *ngIf="(loggedInUser$ | async)?.authenticated">
+      <nav class="navigation">
+        <mat-nav-list>
+          <mat-list-item
+            *ngIf="(loggedInUser$ | async)?.authenticated"
+            [routerLink]="['/movies']"
+            routerLinkActive="active"
+            (click)="closeSidenav()"
+          >
+            <mat-icon>date_range</mat-icon> <span>All movies</span>
+          </mat-list-item>
+          <mat-list-item
+            *ngIf="!(loggedInUser$ | async)?.authenticated"
+            routerLink="/auth/login"
+            routerLinkActive="active"
+            (click)="closeSidenav()"
+          >
+            <mat-icon>account_circle</mat-icon> <span>Login</span>
+          </mat-list-item>
+          <mat-list-item
+            *ngIf="(loggedInUser$ | async)?.authenticated"
+            (click)="closeSidenav(); onLogOut()"
+          >
+            <mat-icon>cancel</mat-icon> <span>Logout</span>
+          </mat-list-item>
+        </mat-nav-list>
+      </nav>
+    </ng-container>
+  </mat-sidenav>
+  <div id="moviebook">
+    <router-outlet> </router-outlet>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Are you sure you want to remove this movie?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">
+    no
+  </button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    yes
+  </button>
+</div>

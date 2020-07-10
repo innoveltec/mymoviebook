@@ -1,0 +1,103 @@
+<!-- <pre>{{ form.value | json }}</pre> -->
+<form [formGroup]="form">
+  <mat-card>
+    <mat-card-content>
+      <div
+        fxLayout="row wrap"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="20px"
+        fxLayoutAlign="start center"
+      >
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Movie Title</mat-label>
+          <input type="text" formControlName="movie_title" matInput />
+          <mat-error *ngIf="movieTitleRequired">
+            Movie Title is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Director Name</mat-label>
+          <input type="text" formControlName="director_name" matInput />
+          <mat-error *ngIf="directorNameRequired">
+            Director name is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Imdb Score</mat-label>
+          <input type="number" formControlName="imdb_score" matInput />
+          <mat-error *ngIf="imdbScoreRequired"
+            >Imdb Score is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row wrap"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="20px"
+        fxLayoutAlign="start center"
+      >
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Duration</mat-label>
+          <input type="number" formControlName="duration" matInput />
+          <mat-error *ngIf="durationRequired">
+            Duration is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Language</mat-label>
+          <input type="text" formControlName="language" matInput />
+        </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(100%/3 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Country</mat-label>
+          <input type="text" formControlName="country" matInput />
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row wrap"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="20px"
+        fxLayoutAlign="start center"
+      >
+        <mat-form-field fxFlex="0 1 calc(100%/2 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Title Year</mat-label>
+          <input type="number" formControlName="title_year" matInput />
+        </mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(100%/2 - 20px)" fxFlex.lt-sm="100%">
+          <mat-label>Budget</mat-label>
+          <input type="text" formControlName="budget" matInput />
+          <mat-error *ngIf="budgetRequired">
+            Budget is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <mat-selection-list formControlName="genres">
+        <mat-list-option [value]="genre" *ngFor="let genre of movieGenres">
+          {{ genre }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card-content>
+  </mat-card>
+  <div class="cta">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      *ngIf="!exists"
+      (click)="createMovie()"
+    >
+      Create movie
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      *ngIf="exists"
+      (click)="updateMovie()"
+    >
+      Save
+    </button>
+    <a class="button button--cancel" [routerLink]="['../']">
+      Cancel
+    </a>
+  </div>
+</form>
