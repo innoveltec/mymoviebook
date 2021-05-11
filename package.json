@@ -18,7 +18,7 @@
     "@firebase/util": "^0.2.27",
     "core-js": "^3.2.1",
     "firebase": "^6.6.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "^6.5.3",
     "zone.js": "^0.10.2"
