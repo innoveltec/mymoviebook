@@ -15,7 +15,7 @@
     "@angular/platform-browser": "^8.2.5",
     "@angular/platform-browser-dynamic": "^8.2.5",
     "@angular/router": "^8.2.5",
-    "@firebase/util": "^0.2.27",
+    "@firebase/util": "^0.3.4",
     "core-js": "^3.2.1",
     "firebase": "^6.6.0",
     "lodash": "^4.17.15",
